@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started | AI-Powered Job Search System</title>
+    <meta name="description" content="Complete setup guide for the AI-powered job search system. Learn how to install, configure, and run your first job search.">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🤖 AI Job Search</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="architecture.html" class="nav-link">Architecture</a></li>
+                <li><a href="getting-started.html" class="nav-link active">Getting Started</a></li>
+                <li><a href="api-reference.html" class="nav-link">API Reference</a></li>
+                <li><a href="https://github.com/netors/job_seeker" class="nav-link">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <span>></span>
+                <span>Getting Started</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Getting Started</h1>
+            <p>Complete setup guide to get your AI-powered job search system running in minutes</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Prerequisites Section -->
+        <section class="section">
+            <div class="container">
+                <h2>Prerequisites</h2>
+                <div class="content-grid">
+                    <div class="content-block">
+                        <h3>🐍 Python Environment</h3>
+                        <ul>
+                            <li><strong>Python 3.10 or higher</strong> (supports up to 3.13)</li>
+                            <li>Virtual environment support (venv or conda)</li>
+                            <li>pip package manager</li>
+                            <li>Git for version control</li>
+                        </ul>
+                        <pre>python --version  # Should be 3.10+</pre>
+                    </div>
+                    <div class="content-block">
+                        <h3>🔑 API Keys Required</h3>
+                        <ul>
+                            <li><strong>SerperDev API Key</strong> (Required - Free tier available)</li>
+                            <li><strong>OpenAI API Key</strong> (Recommended for best performance)</li>
+                        </ul>
+                        <p>Don't worry, we'll walk through getting these in the setup process.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Steps -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Installation Steps</h2>
+
+                <div class="api-section">
+                    <h3>Step 1: Clone and Install</h3>
+                    <p>First, clone the repository and install the package in development mode:</p>
+
+                    <pre>
+# Clone the repository
+git clone https://github.com/netors/job_seeker.git
+cd job_seeker
+
+# Create and activate virtual environment (recommended)
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install CrewAI project dependencies
+crewai install
+                    </pre>
+
+                    <p><strong>What this does:</strong></p>
+                    <ul>
+                        <li>Downloads the complete source code to your machine</li>
+                        <li>Creates an isolated Python environment for the project</li>
+                        <li>Installs all required CrewAI dependencies automatically</li>
+                        <li>Sets up the CrewAI project structure and commands</li>
+                    </ul>
+                </div>
+
+                <div class="api-section">
+                    <h3>Step 2: Environment Configuration</h3>
+                    <p>Set up your environment variables for API keys and configuration:</p>
+
+                    <pre>
+# Copy the environment template
+cp env_template.txt .env
+
+# Edit the .env file with your API keys
+nano .env  # or use your preferred editor
+                    </pre>
+
+                    <p><strong>Your .env file should look like this:</strong></p>
+                    <pre>
+# Required: SerperDev API for job search
+SERPER_API_KEY=your_serper_api_key_here
+
+# Recommended: OpenAI API for best AI performance
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Model selection (optional)
+MODEL=gpt-4o
+
+# Disable telemetry (optional)
+CREWAI_DISABLE_TELEMETRY=true
+CREWAI_DISABLE_TRACKING=true
+OTEL_SDK_DISABLED=true
+                    </pre>
+                </div>
+
+                <div class="api-section">
+                    <h3>Step 3: Get Your API Keys</h3>
+
+                    <div class="content-grid">
+                        <div class="content-block">
+                            <h4>🔍 SerperDev API Key (Required)</h4>
+                            <ol>
+                                <li>Visit <a href="https://serper.dev/" target="_blank">serper.dev</a></li>
+                                <li>Sign up for a free account</li>
+                                <li>Get 100 free searches per month</li>
+                                <li>Copy your API key to the .env file</li>
+                            </ol>
+                            <p><strong>Why needed:</strong> This powers the job search across multiple platforms.</p>
+                        </div>
+                        <div class="content-block">
+                            <h4>🤖 OpenAI API Key (Recommended)</h4>
+                            <ol>
+                                <li>Visit <a href="https://platform.openai.com/" target="_blank">platform.openai.com</a></li>
+                                <li>Create an account or sign in</li>
+                                <li>Generate an API key</li>
+                                <li>Add it to your .env file</li>
+                            </ol>
+                            <p><strong>Why recommended:</strong> Provides the best AI performance for job evaluation and strategy generation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Configuration -->
+        <section class="section">
+            <div class="container">
+                <h2>Profile Configuration</h2>
+
+                <div class="api-section">
+                    <h3>Step 4: Set Up Your Profile</h3>
+                    <p>Configure your personal and professional information for job matching:</p>
+
+                    <pre>
+# The template file contains placeholder data
+# Replace with your actual information
+nano knowledge/resume_template.json
+                    </pre>
+
+                    <p><strong>Complete profile structure:</strong></p>
+                    <pre>
+{
+  "name": "Your Full Name",
+  "email": "your.email@example.com",
+  "phone": "(555) 123-4567",
+  "current_role": "Software Engineer",
+  "years_experience": 5,
+  "location": "San Francisco, CA",
+  "preferred_locations": ["San Francisco, CA", "Remote", "New York, NY"],
+  "expected_salary": 150000,
+  "preferred_company_type": "tech_startup",
+  "skills": [
+    "Python",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "AWS",
+    "Docker",
+    "Kubernetes"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "University of Technology",
+      "graduation_year": 2018
+    }
+  ],
+  "experience": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "Tech Company Inc.",
+      "duration": "2020-Present",
+      "achievements": [
+        "Led development of microservices architecture",
+        "Mentored junior developers",
+        "Implemented CI/CD pipelines"
+      ]
+    }
+  ],
+  "certifications": [
+    "AWS Certified Solutions Architect",
+    "Certified Kubernetes Administrator"
+  ],
+  "projects": [
+    {
+      "name": "E-commerce Platform",
+      "description": "Built scalable microservices platform",
+      "technologies": ["Python", "React", "PostgreSQL"],
+      "url": "https://github.com/username/project"
+    }
+  ],
+  "languages": ["English (Native)", "Spanish (Conversational)"],
+  "interests": ["Cloud Architecture", "Machine Learning", "Open Source"]
+}
+                    </pre>
+                </div>
+
+                <div class="api-section">
+                    <h3>Profile Configuration Tips</h3>
+                    <div class="content-grid">
+                        <div class="content-block">
+                            <h4>💡 Skills Section</h4>
+                            <ul>
+                                <li><strong>Be specific:</strong> Include both technical skills and frameworks</li>
+                                <li><strong>Include levels:</strong> Mention proficiency if relevant</li>
+                                <li><strong>Add soft skills:</strong> Leadership, communication, problem-solving</li>
+                                <li><strong>Stay current:</strong> Focus on technologies you're actively using</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>📍 Location Preferences</h4>
+                            <ul>
+                                <li><strong>Be flexible:</strong> Include multiple cities you'd consider</li>
+                                <li><strong>Remote work:</strong> Add "Remote" if you're open to it</li>
+                                <li><strong>Commute radius:</strong> Include nearby cities within commuting distance</li>
+                                <li><strong>Relocation:</strong> Add cities you'd relocate for the right opportunity</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>💰 Salary Expectations</h4>
+                            <ul>
+                                <li><strong>Market research:</strong> Check salary ranges for your role and location</li>
+                                <li><strong>Be realistic:</strong> Based on your experience level</li>
+                                <li><strong>Total compensation:</strong> Consider base salary, not total comp</li>
+                                <li><strong>Growth trajectory:</strong> Factor in career progression goals</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>🏢 Company Preferences</h4>
+                            <ul>
+                                <li><strong>Company type:</strong> startup, enterprise, nonprofit, healthcare_tech</li>
+                                <li><strong>Industry focus:</strong> Consider what industries interest you</li>
+                                <li><strong>Company size:</strong> Small teams vs large organizations</li>
+                                <li><strong>Culture fit:</strong> Fast-paced vs stable environments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Running Your First Search -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Running Your First Job Search</h2>
+
+                <div class="api-section">
+                    <h3>Step 5: Execute Your First Search</h3>
+                    <p>Now that everything is configured, let's run your first job search:</p>
+
+                    <pre>
+# Basic job search using your profile
+crewai run
+                    </pre>
+
+                    <p><strong>What you'll see during execution:</strong></p>
+                    <p>You'll witness the AI agents' complete thought process as they work through your job search:</p>
+
+                    <pre>
+🚀 Starting CrewAI Job Search Workflow
+==================================================
+👤 Profile: Your Name | 💼 Software Engineer | 🎯 5 years exp
+📍 San Francisco, CA | 💰 $150,000 target
+🛠️ Skills: Python, JavaScript, React, AWS, Docker
+==================================================
+
+🔍 Job Search Agent thinking...
+   > Planning search strategy across Indeed, LinkedIn, Glassdoor
+   > Executing SerperDev API calls...
+   > Processing 47 job listings found
+   > Extracting requirements and company data
+
+⚖️ Job Evaluator Agent reasoning...
+   > Analyzing job #1: Senior Engineer at TechCorp
+   > Skills match: 94% (Python✓, React✓, AWS✓)
+   > Experience fit: Perfect match (5+ years required)
+   > Location: San Francisco ✓ | Salary: $140-170k ✓
+   > Final score: 92/100
+
+🗄️ Database Manager Agent working...
+   > Storing 47 opportunities in SQLite
+   > Updating search history records
+   > Creating application tracking structure
+
+📄 Report Generator Agent writing...
+   > Ranking top 10 opportunities by match score
+   > Generating market insights and salary trends
+   > Creating skills gap analysis
+
+🎯 Application Coordinator Agent strategizing...
+   > Prioritizing applications by deadline and match
+   > Crafting personalized cover letter templates
+   > Building interview preparation materials
+
+✅ Workflow Complete! Generated files:
+   📄 job_search_report.md - Your personalized job analysis
+   📋 application_strategy.md - Step-by-step application plan
+   🗄️ job_opportunities.db - Complete searchable database
+                    </pre>
+
+                    <p><strong>💾 Save the AI Workflow:</strong> Use <code>crewai run > output.log</code> to capture the complete agent reasoning and decision-making process for later analysis.</p>
+                </div>
+
+                <div class="api-section">
+                    <h3>Understanding the Output</h3>
+                    <div class="content-grid">
+                        <div class="content-block">
+                            <h4>📋 job_search_report.md</h4>
+                            <p>Your comprehensive job search analysis including:</p>
+                            <ul>
+                                <li>Top 10 recommended opportunities with match scores</li>
+                                <li>Detailed scoring breakdown for each recommendation</li>
+                                <li>Skills gap analysis and improvement suggestions</li>
+                                <li>Market insights and salary trends</li>
+                                <li>Company analysis and culture fit assessment</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>📝 application_strategy.md</h4>
+                            <p>Personalized application guidance featuring:</p>
+                            <ul>
+                                <li>Cover letter templates for top opportunities</li>
+                                <li>Interview preparation materials and common questions</li>
+                                <li>Application timeline and priority recommendations</li>
+                                <li>Company-specific research insights and talking points</li>
+                                <li>Networking strategies and contact recommendations</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>💾 job_opportunities.db</h4>
+                            <p>SQLite database containing:</p>
+                            <ul>
+                                <li>All discovered job opportunities with full details</li>
+                                <li>Match scores and evaluation reasoning</li>
+                                <li>Search history and timestamp tracking</li>
+                                <li>Company information and job requirements</li>
+                                <li>Application status tracking (for future updates)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Usage -->
+        <section class="section">
+            <div class="container">
+                <h2>Advanced Usage</h2>
+
+                <div class="api-section">
+                    <h3>Custom Search Parameters</h3>
+                    <p>Customize your job search with specific parameters:</p>
+
+                    <pre>
+# Search specific job sites
+python src/job_seeker/main.py search_custom '{
+  "job_sites": ["indeed.com", "linkedin.com"],
+  "search_query": "Senior Python Developer",
+  "location": "Remote",
+  "max_results": 50
+}'
+
+# Search for specific role types
+python src/job_seeker/main.py search_custom '{
+  "job_sites": ["glassdoor.com", "dice.com"],
+  "search_query": "Machine Learning Engineer",
+  "location": "San Francisco Bay Area"
+}'
+                    </pre>
+                </div>
+
+                <div class="api-section">
+                    <h3>Available Commands</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>crewai run</code></td>
+                                <td>Execute the complete AI job search workflow</td>
+                                <td><code>crewai run</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai train</code></td>
+                                <td>Train agents for improved performance</td>
+                                <td><code>crewai train</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai test</code></td>
+                                <td>Test system functionality and agents</td>
+                                <td><code>crewai test</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai replay</code></td>
+                                <td>Replay specific tasks for debugging</td>
+                                <td><code>crewai replay &lt;task_id&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai install</code></td>
+                                <td>Install project dependencies</td>
+                                <td><code>crewai install</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="api-section">
+                    <h3>CrewAI Project Commands</h3>
+                    <p>After installing with <code>crewai install</code>, you have access to all CrewAI project commands:</p>
+
+                    <pre>
+# Primary workflow execution
+crewai run              # Execute the complete job search workflow
+
+# Development and optimization
+crewai train            # Train agents for better performance
+crewai test             # Test all system components
+crewai replay &lt;task_id&gt; # Replay specific workflow steps
+
+# Save detailed output for analysis
+crewai run > workflow_output.log
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Troubleshooting</h2>
+
+                <div class="api-section">
+                    <h3>Common Issues and Solutions</h3>
+
+                    <div class="content-grid">
+                        <div class="content-block">
+                            <h4>❌ "No user profile found"</h4>
+                            <p><strong>Problem:</strong> The system can't find your profile configuration.</p>
+                            <p><strong>Solution:</strong></p>
+                            <ol>
+                                <li>Check that <code>knowledge/resume_template.json</code> exists</li>
+                                <li>Verify the JSON syntax is valid</li>
+                                <li>Ensure all required fields are present</li>
+                                <li>Ensure your profile in <code>knowledge/resume_template.json</code> is properly configured</li>
+                            </ol>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>🔑 "API key not found"</h4>
+                            <p><strong>Problem:</strong> Missing or incorrect API key configuration.</p>
+                            <p><strong>Solution:</strong></p>
+                            <ol>
+                                <li>Check that <code>.env</code> file exists in the project root</li>
+                                <li>Verify your API keys are correctly set</li>
+                                <li>Ensure no extra spaces around the = sign</li>
+                                <li>Restart your terminal after setting environment variables</li>
+                            </ol>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>🌐 "SerperDev API timeout"</h4>
+                            <p><strong>Problem:</strong> Network issues or API service problems.</p>
+                            <p><strong>Solution:</strong></p>
+                            <ol>
+                                <li>Check your internet connection</li>
+                                <li>Verify your SerperDev API key is valid</li>
+                                <li>The system will automatically fall back to mock data</li>
+                                <li>Try running the search again in a few minutes</li>
+                            </ol>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>📦 "Module not found"</h4>
+                            <p><strong>Problem:</strong> Dependencies not properly installed.</p>
+                            <p><strong>Solution:</strong></p>
+                            <ol>
+                                <li>Ensure you're in the correct directory</li>
+                                <li>Activate your virtual environment</li>
+                                <li>Run <code>crewai install</code> again</li>
+                                <li>Check Python version is 3.10 or higher</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>Getting Help</h3>
+                    <div class="content-grid">
+                        <div class="content-block">
+                            <h4>📚 Documentation</h4>
+                            <ul>
+                                <li><a href="architecture.html">System Architecture</a> - Technical details</li>
+                                <li><a href="api-reference.html">API Reference</a> - Command reference</li>
+                                <li><a href="https://github.com/netors/job_seeker/blob/main/CLAUDE.md">Development Guide</a> - Claude Code guidance</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h4>🛠️ Support</h4>
+                            <ul>
+                                <li><a href="https://github.com/netors/job_seeker/issues">GitHub Issues</a> - Report bugs</li>
+                                <li><a href="https://docs.crewai.com/">CrewAI Documentation</a> - Framework help</li>
+                                <li><a href="https://serper.dev/docs">SerperDev Docs</a> - API documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="section">
+            <div class="container">
+                <h2>Next Steps</h2>
+                <div class="content-grid">
+                    <div class="content-block">
+                        <h3>🔄 Regular Usage</h3>
+                        <ul>
+                            <li>Run searches weekly to stay updated on new opportunities</li>
+                            <li>Update your profile as you gain new skills and experience</li>
+                            <li>Review and refine your job search criteria based on results</li>
+                            <li>Track your applications and update your database</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>📈 Optimization</h3>
+                        <ul>
+                            <li>Analyze which types of jobs consistently score highest</li>
+                            <li>Identify skills gaps from job requirements</li>
+                            <li>Adjust your expected salary based on market data</li>
+                            <li>Expand or narrow your location preferences as needed</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>🎯 Advanced Features</h3>
+                        <ul>
+                            <li>Explore custom search parameters for targeted searches</li>
+                            <li>Use the database to track application success rates</li>
+                            <li>Experiment with different job sites and search terms</li>
+                            <li>Review the generated reports for market insights</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>🤝 Contributing</h3>
+                        <ul>
+                            <li>Report issues or suggest improvements on GitHub</li>
+                            <li>Share your success stories and use cases</li>
+                            <li>Contribute new job search sources or evaluation criteria</li>
+                            <li>Help improve the documentation and guides</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="architecture.html">System Architecture</a></li>
+                        <li><a href="getting-started.html">Getting Started</a></li>
+                        <li><a href="api-reference.html">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://www.crewai.com/">CrewAI Framework</a></li>
+                        <li><a href="https://serper.dev/">SerperDev API</a></li>
+                        <li><a href="https://docs.crewai.com/">CrewAI Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Source Code</h4>
+                    <ul>
+                        <li><a href="https://github.com/netors/job_seeker">GitHub Repository</a></li>
+                        <li><a href="https://github.com/netors/job_seeker/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/netors/job_seeker/blob/main/CLAUDE.md">Development Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI-Powered Job Search System. Built with CrewAI framework.</p>
+                <p>Follow the creator: <a href="http://x.com/eruysanchez" target="_blank">@eruysanchez</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

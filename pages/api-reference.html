@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Reference | AI-Powered Job Search System</title>
+    <meta name="description" content="Complete API reference and command documentation for the AI-powered job search system.">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🤖 AI Job Search</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="architecture.html" class="nav-link">Architecture</a></li>
+                <li><a href="getting-started.html" class="nav-link">Getting Started</a></li>
+                <li><a href="api-reference.html" class="nav-link active">API Reference</a></li>
+                <li><a href="https://github.com/netors/job_seeker" class="nav-link">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <span>></span>
+                <span>API Reference</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>API Reference</h1>
+            <p>Complete command reference and configuration options for the AI-powered job search system</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- CLI Commands -->
+        <section class="section">
+            <div class="container">
+                <h2>Command Line Interface</h2>
+
+                <div class="api-section">
+                    <h3>Basic Commands</h3>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">RUN</span> CrewAI Job Search Workflow</h4>
+                        <pre>crewai run</pre>
+                        <p>Executes the complete AI-powered job search workflow using CrewAI's multi-agent orchestration. Watch each agent's reasoning and decision-making process in real-time.</p>
+
+                        <div class="parameter">
+                            <strong>Prerequisites:</strong>
+                            <ul>
+                                <li>Configured user profile in <code>knowledge/resume_template.json</code></li>
+                                <li>Valid API keys in <code>.env</code> file</li>
+                                <li>CrewAI project installed with <code>crewai install</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="parameter">
+                            <strong>AI Workflow Output:</strong>
+                            <ul>
+                                <li>Real-time display of agent reasoning and tool usage</li>
+                                <li><code>job_search_report.md</code> - Comprehensive analysis and recommendations</li>
+                                <li><code>application_strategy.md</code> - Personalized application guidance</li>
+                                <li><code>job_opportunities.db</code> - Complete SQLite database</li>
+                                <li>Use <code>crewai run > output.log</code> to save the complete workflow</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">TRAIN</span> Train AI Agents</h4>
+                        <pre>crewai train</pre>
+                        <p>Trains the AI agents to improve their performance through iterative learning and optimization.</p>
+
+                        <div class="parameter">
+                            <strong>Training Benefits:</strong>
+                            <ul>
+                                <li>Improves agent decision-making accuracy</li>
+                                <li>Optimizes tool usage and workflow efficiency</li>
+                                <li>Enhances job matching algorithm performance</li>
+                                <li>Reduces execution time through learned optimizations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">TEST</span> Test System</h4>
+                        <pre>crewai test</pre>
+                        <p>Runs comprehensive tests to verify all agents, tools, and system components are functioning correctly.</p>
+
+                        <div class="parameter">
+                            <strong>Test Coverage:</strong>
+                            <ul>
+                                <li>Agent initialization and configuration</li>
+                                <li>Tool functionality and API connectivity</li>
+                                <li>Database operations and schema validation</li>
+                                <li>File system permissions and output generation</li>
+                                <li>End-to-end workflow execution</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">REPLAY</span> Replay Tasks</h4>
+                        <pre>crewai replay &lt;task_id&gt;</pre>
+                        <p>Replays specific workflow tasks for debugging, analysis, or performance optimization.</p>
+
+                        <div class="parameter">
+                            <span class="parameter-name">task_id</span>
+                            <span class="parameter-type">string</span>
+                            <span class="required">required</span>
+                            <p>Unique identifier of the task to replay (found in workflow logs or training output).</p>
+
+                            <strong>Use Cases:</strong>
+                            <ul>
+                                <li>Debug specific agent failures or errors</li>
+                                <li>Analyze decision-making patterns</li>
+                                <li>Test workflow modifications</li>
+                                <li>Performance profiling and optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>Advanced CrewAI Commands</h3>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">INSTALL</span> Install Dependencies</h4>
+                        <pre>crewai install</pre>
+                        <p>Installs all required dependencies and sets up the CrewAI project structure for optimal performance.</p>
+
+                        <div class="parameter">
+                            <strong>Installation Features:</strong>
+                            <ul>
+                                <li>Installs CrewAI framework and all dependencies</li>
+                                <li>Sets up virtual environment if needed</li>
+                                <li>Configures project structure and paths</li>
+                                <li>Validates Python version compatibility</li>
+                                <li>Prepares tools and agent configurations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">OUTPUT</span> Save Workflow Output</h4>
+                        <pre>crewai run > workflow_output.log</pre>
+                        <p>Captures the complete AI agent workflow, including reasoning, tool usage, and decision-making processes.</p>
+
+                        <div class="parameter">
+                            <strong>Captured Information:</strong>
+                            <ul>
+                                <li>Agent thought processes and reasoning chains</li>
+                                <li>Tool execution details and API responses</li>
+                                <li>Inter-agent communication and data handoffs</li>
+                                <li>Performance metrics and execution timing</li>
+                                <li>Error handling and recovery mechanisms</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">ANALYZE</span> Workflow Analysis</h4>
+                        <pre>crewai replay &lt;task_id&gt; --analyze</pre>
+                        <p>Provides detailed analysis of specific workflow executions for optimization and debugging.</p>
+
+                        <div class="parameter">
+                            <strong>Analysis Features:</strong>
+                            <ul>
+                                <li>Performance bottleneck identification</li>
+                                <li>Agent decision-making pattern analysis</li>
+                                <li>Tool usage efficiency metrics</li>
+                                <li>Error pattern recognition</li>
+                                <li>Optimization recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>CrewAI Command Reference</h3>
+                    <p>After installing with <code>crewai install</code>, these CrewAI commands become available:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>CrewAI Command</th>
+                                <th>Purpose</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>crewai run</code></td>
+                                <td>Execute AI Workflow</td>
+                                <td>Run the complete job search with AI agent collaboration</td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai train</code></td>
+                                <td>Improve Performance</td>
+                                <td>Train agents for better decision-making and efficiency</td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai test</code></td>
+                                <td>Validate System</td>
+                                <td>Test all components, agents, and integrations</td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai replay</code></td>
+                                <td>Debug & Analyze</td>
+                                <td>Replay specific tasks for debugging and optimization</td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai install</code></td>
+                                <td>Setup Project</td>
+                                <td>Install dependencies and configure CrewAI project</td>
+                            </tr>
+                        </tbody>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuration Reference -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Configuration Reference</h2>
+
+                <div class="api-section">
+                    <h3>Environment Variables (.env)</h3>
+
+                    <div class="endpoint">
+                        <h4>Required Variables</h4>
+                        <div class="parameter">
+                            <span class="parameter-name">SERPER_API_KEY</span>
+                            <span class="parameter-type">string</span>
+                            <span class="required">required</span>
+                            <p>SerperDev API key for web search functionality. Get free tier at <a href="https://serper.dev/">serper.dev</a>.</p>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4>Optional Variables</h4>
+                        <div class="parameter">
+                            <span class="parameter-name">OPENAI_API_KEY</span>
+                            <span class="parameter-type">string</span>
+                            <span class="optional">optional</span>
+                            <p>OpenAI API key for enhanced AI capabilities. Recommended for best performance.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">MODEL</span>
+                            <span class="parameter-type">string</span>
+                            <span class="optional">optional</span>
+                            <p>AI model to use. Default: <code>gpt-4o</code>. Options: <code>gpt-3.5-turbo</code>, <code>gpt-4</code>, <code>gpt-4o</code>.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">CREWAI_DISABLE_TELEMETRY</span>
+                            <span class="parameter-type">boolean</span>
+                            <span class="optional">optional</span>
+                            <p>Disable CrewAI telemetry collection. Default: <code>false</code>. Set to <code>true</code> for privacy.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">CREWAI_DISABLE_TRACKING</span>
+                            <span class="parameter-type">boolean</span>
+                            <span class="optional">optional</span>
+                            <p>Disable CrewAI usage tracking. Default: <code>false</code>. Set to <code>true</code> for privacy.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">OTEL_SDK_DISABLED</span>
+                            <span class="parameter-type">boolean</span>
+                            <span class="optional">optional</span>
+                            <p>Disable OpenTelemetry SDK. Default: <code>false</code>. Set to <code>true</code> to disable tracing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>User Profile Schema (knowledge/resume_template.json)</h3>
+
+                    <div class="endpoint">
+                        <h4>Personal Information</h4>
+                        <div class="parameter">
+                            <span class="parameter-name">name</span>
+                            <span class="parameter-type">string</span>
+                            <span class="required">required</span>
+                            <p>Your full name as it should appear in job applications.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">email</span>
+                            <span class="parameter-type">string</span>
+                            <span class="required">required</span>
+                            <p>Primary email address for job applications.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">phone</span>
+                            <span class="parameter-type">string</span>
+                            <span class="optional">optional</span>
+                            <p>Phone number including country/area code.</p>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4>Professional Information</h4>
+                        <div class="parameter">
+                            <span class="parameter-name">current_role</span>
+                            <span class="parameter-type">string</span>
+                            <span class="required">required</span>
+                            <p>Your current job title or target role if unemployed.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">years_experience</span>
+                            <span class="parameter-type">number</span>
+                            <span class="required">required</span>
+                            <p>Total years of professional experience in your field.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">skills</span>
+                            <span class="parameter-type">array[string]</span>
+                            <span class="required">required</span>
+                            <p>List of technical skills, programming languages, frameworks, and tools.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">location</span>
+                            <span class="parameter-type">string</span>
+                            <span class="required">required</span>
+                            <p>Your current location (city, state/province, country).</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">preferred_locations</span>
+                            <span class="parameter-type">array[string]</span>
+                            <span class="required">required</span>
+                            <p>List of locations where you're willing to work. Include "Remote" if applicable.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">expected_salary</span>
+                            <span class="parameter-type">number</span>
+                            <span class="required">required</span>
+                            <p>Expected annual salary in your local currency (base salary, not total compensation).</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">preferred_company_type</span>
+                            <span class="parameter-type">string</span>
+                            <span class="optional">optional</span>
+                            <p>Preferred company type. Options: <code>startup</code>, <code>enterprise</code>, <code>nonprofit</code>, <code>healthcare_tech</code>, <code>fintech</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4>Education and Experience</h4>
+                        <div class="parameter">
+                            <span class="parameter-name">education</span>
+                            <span class="parameter-type">array[object]</span>
+                            <span class="optional">optional</span>
+                            <p>Educational background with degree, institution, and graduation year.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">experience</span>
+                            <span class="parameter-type">array[object]</span>
+                            <span class="optional">optional</span>
+                            <p>Work experience with titles, companies, duration, and achievements.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">certifications</span>
+                            <span class="parameter-type">array[string]</span>
+                            <span class="optional">optional</span>
+                            <p>Professional certifications and their years of completion.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">projects</span>
+                            <span class="parameter-type">array[object]</span>
+                            <span class="optional">optional</span>
+                            <p>Notable projects with descriptions, technologies used, and URLs.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">languages</span>
+                            <span class="parameter-type">array[string]</span>
+                            <span class="optional">optional</span>
+                            <p>Spoken languages with proficiency levels.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">interests</span>
+                            <span class="parameter-type">array[string]</span>
+                            <span class="optional">optional</span>
+                            <p>Professional interests and areas of expertise.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>Custom Search Parameters</h3>
+
+                    <div class="endpoint">
+                        <h4>search_custom JSON Schema</h4>
+                        <div class="parameter">
+                            <span class="parameter-name">job_sites</span>
+                            <span class="parameter-type">array[string]</span>
+                            <span class="optional">optional</span>
+                            <p>Specific job sites to search. Options: <code>indeed.com</code>, <code>linkedin.com</code>, <code>glassdoor.com</code>, <code>dice.com</code>.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">search_query</span>
+                            <span class="parameter-type">string</span>
+                            <span class="optional">optional</span>
+                            <p>Custom search query to override profile-based search terms.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">location</span>
+                            <span class="parameter-type">string</span>
+                            <span class="optional">optional</span>
+                            <p>Specific location for this search, overriding profile preferences.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">max_results</span>
+                            <span class="parameter-type">number</span>
+                            <span class="optional">optional</span>
+                            <p>Maximum number of results to return. Default: 20. Range: 10-100.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">salary_min</span>
+                            <span class="parameter-type">number</span>
+                            <span class="optional">optional</span>
+                            <p>Minimum salary filter for search results.</p>
+                        </div>
+
+                        <div class="parameter">
+                            <span class="parameter-name">experience_level</span>
+                            <span class="parameter-type">string</span>
+                            <span class="optional">optional</span>
+                            <p>Target experience level. Options: <code>entry</code>, <code>mid</code>, <code>senior</code>, <code>lead</code>, <code>executive</code>.</p>
+                        </div>
+                    </div>
+
+                    <strong>Complete Example:</strong>
+                    <pre>{
+  "job_sites": ["indeed.com", "linkedin.com"],
+  "search_query": "Senior Full Stack Developer",
+  "location": "San Francisco Bay Area",
+  "max_results": 50,
+  "salary_min": 120000,
+  "experience_level": "senior"
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Output Formats -->
+        <section class="section">
+            <div class="container">
+                <h2>Output Formats</h2>
+
+                <div class="api-section">
+                    <h3>Generated Files</h3>
+
+                    <div class="endpoint">
+                        <h4>job_search_report.md</h4>
+                        <p>Comprehensive markdown report with the following sections:</p>
+
+                        <div class="parameter">
+                            <strong>Report Structure:</strong>
+                            <ul>
+                                <li><strong>Executive Summary:</strong> Overview of search results and key findings</li>
+                                <li><strong>Top Opportunities:</strong> Ranked list of best matches with scores</li>
+                                <li><strong>Match Analysis:</strong> Detailed scoring breakdown for each recommendation</li>
+                                <li><strong>Skills Gap Analysis:</strong> Identified missing skills and improvement areas</li>
+                                <li><strong>Market Insights:</strong> Salary trends and demand analysis</li>
+                                <li><strong>Company Analysis:</strong> Information about recommended companies</li>
+                                <li><strong>Search Statistics:</strong> Metrics about the search execution</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4>application_strategy.md</h4>
+                        <p>Personalized application guidance document containing:</p>
+
+                        <div class="parameter">
+                            <strong>Strategy Components:</strong>
+                            <ul>
+                                <li><strong>Application Priority:</strong> Recommended order for applying to opportunities</li>
+                                <li><strong>Cover Letter Templates:</strong> Customized templates for top opportunities</li>
+                                <li><strong>Interview Preparation:</strong> Common questions and talking points</li>
+                                <li><strong>Company Research:</strong> Key insights about target companies</li>
+                                <li><strong>Timeline Recommendations:</strong> Suggested application schedule</li>
+                                <li><strong>Networking Strategies:</strong> Contact recommendations and approaches</li>
+                                <li><strong>Skill Development:</strong> Priority areas for improvement</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4>job_opportunities.db</h4>
+                        <p>SQLite database with comprehensive job data storage:</p>
+
+                        <div class="parameter">
+                            <strong>Database Tables:</strong>
+                            <ul>
+                                <li><strong>job_opportunities:</strong> Complete job listings with match scores</li>
+                                <li><strong>search_history:</strong> Record of all search executions</li>
+                                <li><strong>evaluation_criteria:</strong> Scoring algorithm details</li>
+                                <li><strong>application_tracking:</strong> Status of job applications (future use)</li>
+                            </ul>
+                        </div>
+
+                        <div class="parameter">
+                            <strong>Query Examples:</strong>
+                            <pre>-- Top 10 opportunities by match score
+SELECT title, company, location, match_score
+FROM job_opportunities
+ORDER BY match_score DESC
+LIMIT 10;
+
+-- Jobs by company type
+SELECT company, COUNT(*) as job_count
+FROM job_opportunities
+GROUP BY company;
+
+-- Search history summary
+SELECT search_date, results_count, execution_time
+FROM search_history
+ORDER BY search_date DESC;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Error Codes -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Error Codes and Troubleshooting</h2>
+
+                <div class="api-section">
+                    <h3>Common Error Messages</h3>
+
+                    <div class="endpoint">
+                        <h4>Configuration Errors</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Error Message</th>
+                                    <th>Cause</th>
+                                    <th>Solution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>No user profile found</code></td>
+                                    <td>Missing or invalid profile file</td>
+                                    <td>Create/fix <code>knowledge/resume_template.json</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>Invalid JSON in profile</code></td>
+                                    <td>Syntax error in profile file</td>
+                                    <td>Validate JSON syntax and fix errors</td>
+                                </tr>
+                                <tr>
+                                    <td><code>API key not found</code></td>
+                                    <td>Missing environment variables</td>
+                                    <td>Set SERPER_API_KEY in .env file</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Invalid API key format</code></td>
+                                    <td>Malformed API key</td>
+                                    <td>Check API key format and regenerate if needed</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4>Runtime Errors</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Error Message</th>
+                                    <th>Cause</th>
+                                    <th>Solution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>SerperDev API timeout</code></td>
+                                    <td>Network or API service issues</td>
+                                    <td>System falls back to mock data automatically</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Database connection failed</code></td>
+                                    <td>File permissions or disk space</td>
+                                    <td>Check write permissions in project directory</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Module not found</code></td>
+                                    <td>Missing dependencies</td>
+                                    <td>Run <code>pip install -e .</code> again</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Agent initialization failed</code></td>
+                                    <td>CrewAI configuration issue</td>
+                                    <td>Check agent and task YAML files</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>Exit Codes</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exit Code</th>
+                                <th>Meaning</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>0</code></td>
+                                <td>Success</td>
+                                <td>Command completed successfully</td>
+                            </tr>
+                            <tr>
+                                <td><code>1</code></td>
+                                <td>General Error</td>
+                                <td>Unspecified error occurred</td>
+                            </tr>
+                            <tr>
+                                <td><code>2</code></td>
+                                <td>Configuration Error</td>
+                                <td>Invalid configuration or missing files</td>
+                            </tr>
+                            <tr>
+                                <td><code>3</code></td>
+                                <td>API Error</td>
+                                <td>External API failure or authentication</td>
+                            </tr>
+                            <tr>
+                                <td><code>4</code></td>
+                                <td>Database Error</td>
+                                <td>Database operation failed</td>
+                            </tr>
+                            <tr>
+                                <td><code>5</code></td>
+                                <td>Agent Error</td>
+                                <td>AI agent execution failed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="api-section">
+                    <h3>Debugging Options</h3>
+
+                    <div class="endpoint">
+                        <h4>Verbose Logging</h4>
+                        <pre># Enable detailed logging
+export CREWAI_LOG_LEVEL=DEBUG
+crewai run
+
+# Save complete workflow output
+crewai run > detailed_workflow.log
+
+# View logs in real-time
+tail -f ~/.crewai/logs/job_seeker.log</pre>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4>Test Mode</h4>
+                        <pre># Run comprehensive system tests
+crewai test
+
+# Train agents for better performance
+crewai train
+
+# Replay specific workflow steps
+crewai replay &lt;task_id&gt;
+
+# Capture complete AI workflow
+crewai run > complete_workflow.log</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance -->
+        <section class="section">
+            <div class="container">
+                <h2>Performance and Limitations</h2>
+
+                <div class="api-section">
+                    <h3>Performance Characteristics</h3>
+
+                    <div class="content-grid">
+                        <div class="content-block">
+                            <h4>⏱️ Execution Times</h4>
+                            <ul>
+                                <li><strong>Basic job search:</strong> 2-5 minutes</li>
+                                <li><strong>Custom search:</strong> 1-3 minutes</li>
+                                <li><strong>Database operations:</strong> < 1 second</li>
+                                <li><strong>Report generation:</strong> 30-60 seconds</li>
+                                <li><strong>Agent training:</strong> 10-30 minutes per iteration</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>📊 Resource Usage</h4>
+                            <ul>
+                                <li><strong>Memory:</strong> 200-500 MB typical usage</li>
+                                <li><strong>Disk space:</strong> 50-100 MB for installation</li>
+                                <li><strong>Database size:</strong> 1-10 MB per search</li>
+                                <li><strong>Network:</strong> 1-5 MB per search execution</li>
+                                <li><strong>API calls:</strong> 5-20 calls per search</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>🔢 Scale Limits</h4>
+                            <ul>
+                                <li><strong>Job results:</strong> Up to 100 per search</li>
+                                <li><strong>Search history:</strong> Unlimited storage</li>
+                                <li><strong>Profile skills:</strong> No practical limit</li>
+                                <li><strong>Custom searches:</strong> No daily limit</li>
+                                <li><strong>Database size:</strong> Limited by disk space</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block">
+                            <h4>🌐 API Rate Limits</h4>
+                            <ul>
+                                <li><strong>SerperDev Free:</strong> 100 searches/month</li>
+                                <li><strong>SerperDev Pro:</strong> 1000+ searches/month</li>
+                                <li><strong>OpenAI API:</strong> Varies by plan</li>
+                                <li><strong>Job boards:</strong> Respectful rate limiting applied</li>
+                                <li><strong>Fallback mode:</strong> Unlimited mock data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="architecture.html">System Architecture</a></li>
+                        <li><a href="getting-started.html">Getting Started</a></li>
+                        <li><a href="api-reference.html">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://www.crewai.com/">CrewAI Framework</a></li>
+                        <li><a href="https://serper.dev/">SerperDev API</a></li>
+                        <li><a href="https://docs.crewai.com/">CrewAI Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Source Code</h4>
+                    <ul>
+                        <li><a href="https://github.com/netors/job_seeker">GitHub Repository</a></li>
+                        <li><a href="https://github.com/netors/job_seeker/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/netors/job_seeker/blob/main/CLAUDE.md">Development Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI-Powered Job Search System. Built with CrewAI framework.</p>
+                <p>Follow the creator: <a href="http://x.com/eruysanchez" target="_blank">@eruysanchez</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

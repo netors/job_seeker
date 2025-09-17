@@ -1,6 +1,6 @@
 # 🤖 AI-Powered Job Search System
 
-An intelligent job search system built with CrewAI that uses multiple AI agents to find, evaluate, and recommend job opportunities tailored to your profile.
+An intelligent job search system built with [CrewAI](https://www.crewai.com/) that uses multiple AI agents to find, evaluate, and recommend job opportunities tailored to your profile.
 
 ## ✨ Features
 
@@ -9,6 +9,7 @@ An intelligent job search system built with CrewAI that uses multiple AI agents 
 - **📊 Comprehensive Analysis**: Detailed reports with application strategies
 - **💾 Persistent Storage**: SQLite database for tracking and history
 - **🎨 Customizable**: Flexible search parameters and job site selection
+- **🤖 CrewAI Framework**: Built with CrewAI's multi-agent orchestration
 
 ## 🚀 Quick Start
 
@@ -17,8 +18,10 @@ An intelligent job search system built with CrewAI that uses multiple AI agents 
 ```bash
 git clone https://github.com/netors/job_seeker.git
 cd job_seeker
-pip install -e .
+crewai install
 ```
+
+> **Note**: This is a CrewAI project. The `crewai install` command will install all dependencies and set up the project structure according to CrewAI standards.
 
 ### 2. Configure
 
@@ -34,18 +37,27 @@ cp env_template.txt .env
 ### 3. Run
 
 ```bash
-python src/job_seeker/main.py run
+crewai run
 ```
 
 ## 🏗️ How It Works
 
-The system uses **5 specialized AI agents** working together:
+Built with [CrewAI's multi-agent framework](https://docs.crewai.com/), the system uses **5 specialized AI agents** working together in a sequential process:
 
 1. **🔍 Job Search Agent** - Discovers opportunities across platforms
 2. **⚖️ Job Evaluator Agent** - Scores jobs against your profile
 3. **🗄️ Database Manager Agent** - Stores and organizes data
 4. **📄 Report Generator Agent** - Creates comprehensive analysis
 5. **🎯 Application Coordinator Agent** - Provides strategic guidance
+
+### CrewAI Integration
+
+This project follows [CrewAI best practices](https://docs.crewai.com/en/quickstart):
+- **YAML Configuration**: Agents and tasks defined in `config/` directory
+- **@CrewBase Decorator**: Main crew class with agent and task decorators
+- **Sequential Process**: Tasks execute in order with proper context passing
+- **Custom Tools**: Specialized job search and evaluation tools
+- **CrewAI CLI**: Use `crewai run`, `crewai train`, `crewai test` commands
 
 ## 📊 What You Get
 
@@ -73,6 +85,12 @@ After each search, the system generates:
 | **[Architecture](docs/architecture.md)** | Technical implementation details |
 | **[Troubleshooting](docs/troubleshooting.md)** | Common issues and solutions |
 
+**CrewAI Framework Documentation:**
+- [CrewAI Quickstart](https://docs.crewai.com/en/quickstart) - Get started with CrewAI
+- [CrewAI Agents](https://docs.crewai.com/concepts/agents) - Learn about agent configuration
+- [CrewAI Tasks](https://docs.crewai.com/concepts/tasks) - Understand task workflows
+- [CrewAI Tools](https://docs.crewai.com/concepts/tools) - Create custom tools
+
 **Visual Documentation:**
 - [System Architecture Diagrams](docs/crew_architecture_diagram.md)
 - [Agent Workflow Diagrams](docs/crew_sequence_diagram.md)
@@ -90,37 +108,40 @@ Check out our [GitHub Pages site](https://netors.github.io/job_seeker/) for:
 
 ```bash
 # Basic job search
-python src/job_seeker/main.py run
+crewai run
 
-# Custom search with specific sites
-python src/job_seeker/main.py search_custom '{
-  "job_sites": ["indeed.com", "linkedin.com"],
-  "search_query": "Senior Python Developer",
-  "location": "Remote"
-}'
+# Train the crew
+crewai train
 
-# View previous results
-python src/job_seeker/main.py view_results
+# Test the crew
+crewai test
+
+# Replay a specific task
+crewai replay <task_id>
 ```
 
 ## 🛠️ Requirements
 
 - **Python 3.10+** (supports up to 3.13)
+- **CrewAI**: Multi-agent framework for AI orchestration
 - **API Keys**: SerperDev (required), OpenAI (recommended)
-- **Dependencies**: Automatically installed with `pip install -e .`
+- **Dependencies**: Automatically installed with `crewai install`
 
 ## 📁 Project Structure
 
 ```
 job_seeker/
-├── src/job_seeker/              # Main application code
-│   ├── config/                  # Agent and task configurations
+├── src/job_seeker/              # Main CrewAI application
+│   ├── config/                  # Agent and task YAML configurations
+│   │   ├── agents.yaml          # Agent definitions and roles
+│   │   └── tasks.yaml           # Task definitions and workflows
 │   ├── tools/                   # Custom CrewAI tools
-│   ├── crew.py                  # Main crew orchestrator
-│   └── main.py                  # CLI interface
+│   ├── crew.py                  # CrewAI crew orchestrator (@CrewBase)
+│   └── main.py                  # Entry point and CLI interface
 ├── knowledge/                   # User profile and data
 ├── docs/                        # Comprehensive documentation
 ├── pages/                       # GitHub Pages website
+├── pyproject.toml               # CrewAI project configuration
 └── README.md                    # This file
 ```
 
@@ -148,9 +169,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [CrewAI](https://www.crewai.com/) - Multi-agent framework
-- [SerperDev](https://serper.dev/) - Web search API
-- [OpenAI](https://openai.com/) - AI language models
+- [CrewAI](https://www.crewai.com/) - Multi-agent orchestration framework
+- [SerperDev](https://serper.dev/) - Web search API for job discovery
+- [OpenAI](https://openai.com/) - AI language models for agent reasoning
 
 ## 📞 Support
 
@@ -170,5 +191,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **🎯 Ready to transform your job search?** Start with our [Installation Guide](docs/installation.md) and find your next opportunity with AI!
+
+## 🚀 CrewAI Features
+
+This project showcases advanced CrewAI capabilities:
+- **Multi-Agent Collaboration**: 5 specialized agents working in harmony
+- **YAML Configuration**: Easy agent and task customization
+- **Custom Tools**: Specialized job search and evaluation tools
+- **Sequential Processing**: Tasks execute with proper context flow
+- **Training & Testing**: Built-in crew training and testing capabilities
+- **Replay Functionality**: Debug and replay specific tasks
 
 **👨‍💻 Follow the Creator:** [@eruysanchez](http://x.com/eruysanchez)

@@ -209,7 +209,7 @@ sequenceDiagram
     participant Serper as 🌐 SerperDevTool
     participant DB as 💾 SQLite Database
 
-    User->>Main: python src/job_seeker/main.py run
+    User->>Main: crewai run
     Main->>Main: Load user profile from JSON
     Main->>Crew: Initialize JobSeeker crew
 
@@ -509,6 +509,66 @@ CREATE TABLE search_history (
                             <li><strong>Template System:</strong> Customizable report formats</li>
                             <li><strong>Configuration Management:</strong> YAML-based settings</li>
                             <li><strong>Tool Framework:</strong> Standard interface for new tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Workflow Experience -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>AI Workflow Experience</h2>
+                <div class="content-grid">
+                    <div class="content-block">
+                        <h3>🤖 Real-Time Agent Observation</h3>
+                        <p>
+                            When you execute <code>crewai run</code>, you witness the complete AI workflow in real-time.
+                            Each agent's thought process, reasoning, and decision-making is displayed as it happens,
+                            providing unprecedented transparency into AI collaboration.
+                        </p>
+                        <ul>
+                            <li>Agent planning and strategy formation</li>
+                            <li>Tool selection and execution reasoning</li>
+                            <li>Data processing and evaluation logic</li>
+                            <li>Inter-agent communication patterns</li>
+                            <li>Error handling and recovery mechanisms</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>💾 Complete Workflow Capture</h3>
+                        <p>
+                            The entire AI workflow can be captured for analysis, debugging, or educational purposes:
+                        </p>
+                        <pre><code>crewai run > complete_workflow.log</code></pre>
+                        <p>
+                            This saves every agent decision, tool usage, API call, and reasoning step,
+                            creating a comprehensive record of the AI problem-solving process.
+                        </p>
+                    </div>
+                    <div class="content-block">
+                        <h3>📊 Workflow Analytics</h3>
+                        <p>
+                            The captured workflow data enables deep analysis of AI performance:
+                        </p>
+                        <ul>
+                            <li>Agent efficiency and optimization opportunities</li>
+                            <li>Tool usage patterns and API call optimization</li>
+                            <li>Decision-making accuracy and improvements</li>
+                            <li>Performance bottlenecks and resolution paths</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>🎯 CrewAI Command Suite</h3>
+                        <p>
+                            The system leverages the full CrewAI command ecosystem:
+                        </p>
+                        <ul>
+                            <li><code>crewai run</code> - Execute the complete workflow</li>
+                            <li><code>crewai train</code> - Improve agent performance</li>
+                            <li><code>crewai test</code> - Validate system integrity</li>
+                            <li><code>crewai replay</code> - Debug specific workflow steps</li>
+                            <li><code>crewai install</code> - Setup project dependencies</li>
                         </ul>
                     </div>
                 </div>

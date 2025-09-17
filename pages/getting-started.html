@@ -87,16 +87,16 @@ cd job_seeker
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install in development mode
-pip install -e .
+# Install CrewAI project dependencies
+crewai install
                     </pre>
 
                     <p><strong>What this does:</strong></p>
                     <ul>
                         <li>Downloads the complete source code to your machine</li>
                         <li>Creates an isolated Python environment for the project</li>
-                        <li>Installs all required dependencies automatically</li>
-                        <li>Sets up command-line scripts for easy access</li>
+                        <li>Installs all required CrewAI dependencies automatically</li>
+                        <li>Sets up the CrewAI project structure and commands</li>
                     </ul>
                 </div>
 
@@ -287,33 +287,55 @@ nano knowledge/resume_template.json
 
                     <pre>
 # Basic job search using your profile
-python src/job_seeker/main.py run
+crewai run
                     </pre>
 
                     <p><strong>What you'll see during execution:</strong></p>
+                    <p>You'll witness the AI agents' complete thought process as they work through your job search:</p>
+
                     <pre>
-🚀 Starting AI-Powered Job Search System
+🚀 Starting CrewAI Job Search Workflow
 ==================================================
-👤 Job Search for: Your Name
-💼 Current Role: Software Engineer
-🎯 Experience: 5 years
-📍 Location: San Francisco, CA
-💰 Expected Salary: $150,000
-🛠️  Key Skills: Python, JavaScript, React, AWS, Docker
+👤 Profile: Your Name | 💼 Software Engineer | 🎯 5 years exp
+📍 San Francisco, CA | 💰 $150,000 target
+🛠️ Skills: Python, JavaScript, React, AWS, Docker
 ==================================================
 
-🔍 Job Search Agent: Discovering opportunities...
-⚖️ Job Evaluator Agent: Scoring matches...
-🗄️ Database Manager Agent: Storing results...
-📄 Report Generator Agent: Creating analysis...
-🎯 Application Coordinator Agent: Preparing strategy...
+🔍 Job Search Agent thinking...
+   > Planning search strategy across Indeed, LinkedIn, Glassdoor
+   > Executing SerperDev API calls...
+   > Processing 47 job listings found
+   > Extracting requirements and company data
 
-🎉 Job search completed successfully!
-📊 Check the generated files for detailed results:
-   📄 job_search_report.md - Comprehensive analysis
-   📋 application_strategy.md - Application guidance
-   🗄️ job_opportunities.db - Database of opportunities
+⚖️ Job Evaluator Agent reasoning...
+   > Analyzing job #1: Senior Engineer at TechCorp
+   > Skills match: 94% (Python✓, React✓, AWS✓)
+   > Experience fit: Perfect match (5+ years required)
+   > Location: San Francisco ✓ | Salary: $140-170k ✓
+   > Final score: 92/100
+
+🗄️ Database Manager Agent working...
+   > Storing 47 opportunities in SQLite
+   > Updating search history records
+   > Creating application tracking structure
+
+📄 Report Generator Agent writing...
+   > Ranking top 10 opportunities by match score
+   > Generating market insights and salary trends
+   > Creating skills gap analysis
+
+🎯 Application Coordinator Agent strategizing...
+   > Prioritizing applications by deadline and match
+   > Crafting personalized cover letter templates
+   > Building interview preparation materials
+
+✅ Workflow Complete! Generated files:
+   📄 job_search_report.md - Your personalized job analysis
+   📋 application_strategy.md - Step-by-step application plan
+   🗄️ job_opportunities.db - Complete searchable database
                     </pre>
+
+                    <p><strong>💾 Save the AI Workflow:</strong> Use <code>crewai run > output.log</code> to capture the complete agent reasoning and decision-making process for later analysis.</p>
                 </div>
 
                 <div class="api-section">
@@ -396,45 +418,49 @@ python src/job_seeker/main.py search_custom '{
                         </thead>
                         <tbody>
                             <tr>
-                                <td><code>run</code></td>
-                                <td>Basic job search with your profile</td>
-                                <td><code>python src/job_seeker/main.py run</code></td>
+                                <td><code>crewai run</code></td>
+                                <td>Execute the complete AI job search workflow</td>
+                                <td><code>crewai run</code></td>
                             </tr>
                             <tr>
-                                <td><code>search_custom</code></td>
-                                <td>Search with custom parameters</td>
-                                <td><code>python src/job_seeker/main.py search_custom '{"job_sites": ["indeed.com"]}'</code></td>
+                                <td><code>crewai train</code></td>
+                                <td>Train agents for improved performance</td>
+                                <td><code>crewai train</code></td>
                             </tr>
                             <tr>
-                                <td><code>view_results</code></td>
-                                <td>View previous search results</td>
-                                <td><code>python src/job_seeker/main.py view_results</code></td>
+                                <td><code>crewai test</code></td>
+                                <td>Test system functionality and agents</td>
+                                <td><code>crewai test</code></td>
                             </tr>
                             <tr>
-                                <td><code>update_profile</code></td>
-                                <td>Interactive profile update guidance</td>
-                                <td><code>python src/job_seeker/main.py update_profile</code></td>
+                                <td><code>crewai replay</code></td>
+                                <td>Replay specific tasks for debugging</td>
+                                <td><code>crewai replay &lt;task_id&gt;</code></td>
                             </tr>
                             <tr>
-                                <td><code>test</code></td>
-                                <td>Test system functionality</td>
-                                <td><code>python src/job_seeker/main.py test</code></td>
+                                <td><code>crewai install</code></td>
+                                <td>Install project dependencies</td>
+                                <td><code>crewai install</code></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="api-section">
-                    <h3>Using Installed Scripts</h3>
-                    <p>After installing with <code>pip install -e .</code>, you can use shorter commands:</p>
+                    <h3>CrewAI Project Commands</h3>
+                    <p>After installing with <code>crewai install</code>, you have access to all CrewAI project commands:</p>
 
                     <pre>
-# These are equivalent to the full python commands above
-job_seeker          # Same as 'python src/job_seeker/main.py run'
-run_crew           # Same as 'python src/job_seeker/main.py run'
+# Primary workflow execution
+crewai run              # Execute the complete job search workflow
 
-# Full commands still work too
-python src/job_seeker/main.py run
+# Development and optimization
+crewai train            # Train agents for better performance
+crewai test             # Test all system components
+crewai replay &lt;task_id&gt; # Replay specific workflow steps
+
+# Save detailed output for analysis
+crewai run > workflow_output.log
                     </pre>
                 </div>
             </div>
@@ -457,7 +483,7 @@ python src/job_seeker/main.py run
                                 <li>Check that <code>knowledge/resume_template.json</code> exists</li>
                                 <li>Verify the JSON syntax is valid</li>
                                 <li>Ensure all required fields are present</li>
-                                <li>Run <code>python src/job_seeker/main.py update_profile</code> for guidance</li>
+                                <li>Ensure your profile in <code>knowledge/resume_template.json</code> is properly configured</li>
                             </ol>
                         </div>
 
@@ -492,7 +518,7 @@ python src/job_seeker/main.py run
                             <ol>
                                 <li>Ensure you're in the correct directory</li>
                                 <li>Activate your virtual environment</li>
-                                <li>Run <code>pip install -e .</code> again</li>
+                                <li>Run <code>crewai install</code> again</li>
                                 <li>Check Python version is 3.10 or higher</li>
                             </ol>
                         </div>

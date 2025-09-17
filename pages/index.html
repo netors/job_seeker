@@ -352,13 +352,69 @@
                         </div>
                         <div class="quick-step">
                             <h4>3. Run Your First Search</h4>
-                            <code>python src/job_seeker/main.py run</code>
+                            <code>crewai run</code>
+                            <p><small>Watch AI agents work together in real-time! Use <code>crewai run > output.log</code> to save the detailed workflow.</small></p>
                         </div>
                     </div>
 
                     <div class="cta-buttons">
                         <a href="getting-started.html" class="btn btn-primary">Detailed Setup Guide</a>
                         <a href="architecture.html" class="btn btn-secondary">System Architecture</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Workflow Output Section -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Experience the AI Workflow in Action</h2>
+                <div class="content-grid">
+                    <div class="content-block">
+                        <h3>🤖 Watch AI Agents Think</h3>
+                        <p>
+                            When you run <code>crewai run</code>, you'll see each AI agent's thought process in real-time:
+                            their reasoning, tool usage, decision-making, and how they collaborate to solve your job search.
+                        </p>
+                        <ul>
+                            <li>Agent deliberation and planning</li>
+                            <li>Tool execution and API calls</li>
+                            <li>Data processing and evaluation logic</li>
+                            <li>Inter-agent communication and handoffs</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>💾 Save the Complete Workflow</h3>
+                        <p>
+                            To capture the entire AI workflow for analysis or debugging, use:
+                        </p>
+                        <pre><code>crewai run > output.log</code></pre>
+                        <p>
+                            This saves all agent outputs, reasoning chains, and execution details to a file you can review later.
+                        </p>
+                    </div>
+                    <div class="content-block">
+                        <h3>📋 Final Output Files</h3>
+                        <p>
+                            After the AI workflow completes, you'll have actionable results:
+                        </p>
+                        <ul>
+                            <li><strong>job_search_report.md</strong> - Comprehensive job analysis and recommendations</li>
+                            <li><strong>application_strategy.md</strong> - Personalized application guidance and cover letter templates</li>
+                            <li><strong>job_opportunities.db</strong> - SQLite database with all discovered opportunities</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>🎯 CrewAI Commands</h3>
+                        <p>
+                            Explore all CrewAI capabilities:
+                        </p>
+                        <ul>
+                            <li><code>crewai run</code> - Execute the job search workflow</li>
+                            <li><code>crewai train</code> - Train agents for better performance</li>
+                            <li><code>crewai test</code> - Test system functionality</li>
+                            <li><code>crewai replay &lt;task_id&gt;</code> - Replay specific tasks</li>
+                        </ul>
                     </div>
                 </div>
             </div>

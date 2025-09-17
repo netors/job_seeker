@@ -51,168 +51,180 @@
                     <h3>Basic Commands</h3>
 
                     <div class="endpoint">
-                        <h4><span class="endpoint-method">RUN</span> Basic Job Search</h4>
-                        <pre>python src/job_seeker/main.py run</pre>
-                        <p>Executes a complete job search using your configured profile. This is the primary command for running the AI-powered job search system.</p>
+                        <h4><span class="endpoint-method">RUN</span> CrewAI Job Search Workflow</h4>
+                        <pre>crewai run</pre>
+                        <p>Executes the complete AI-powered job search workflow using CrewAI's multi-agent orchestration. Watch each agent's reasoning and decision-making process in real-time.</p>
 
                         <div class="parameter">
                             <strong>Prerequisites:</strong>
                             <ul>
                                 <li>Configured user profile in <code>knowledge/resume_template.json</code></li>
                                 <li>Valid API keys in <code>.env</code> file</li>
-                                <li>All dependencies installed</li>
+                                <li>CrewAI project installed with <code>crewai install</code></li>
                             </ul>
                         </div>
 
                         <div class="parameter">
-                            <strong>Output Files:</strong>
+                            <strong>AI Workflow Output:</strong>
                             <ul>
-                                <li><code>job_search_report.md</code> - Comprehensive analysis</li>
-                                <li><code>application_strategy.md</code> - Application guidance</li>
-                                <li><code>job_opportunities.db</code> - SQLite database</li>
+                                <li>Real-time display of agent reasoning and tool usage</li>
+                                <li><code>job_search_report.md</code> - Comprehensive analysis and recommendations</li>
+                                <li><code>application_strategy.md</code> - Personalized application guidance</li>
+                                <li><code>job_opportunities.db</code> - Complete SQLite database</li>
+                                <li>Use <code>crewai run > output.log</code> to save the complete workflow</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="endpoint">
-                        <h4><span class="endpoint-method">SEARCH</span> Custom Search</h4>
-                        <pre>python src/job_seeker/main.py search_custom 'JSON_PARAMETERS'</pre>
-                        <p>Performs a customized job search with specific parameters and job site targeting.</p>
+                        <h4><span class="endpoint-method">TRAIN</span> Train AI Agents</h4>
+                        <pre>crewai train</pre>
+                        <p>Trains the AI agents to improve their performance through iterative learning and optimization.</p>
 
                         <div class="parameter">
-                            <span class="parameter-name">JSON_PARAMETERS</span>
-                            <span class="parameter-type">string</span>
-                            <span class="required">required</span>
-                            <p>JSON string containing search customization options.</p>
-                        </div>
-
-                        <strong>Example:</strong>
-                        <pre>python src/job_seeker/main.py search_custom '{
-  "job_sites": ["indeed.com", "linkedin.com"],
-  "search_query": "Senior Python Developer",
-  "location": "Remote",
-  "max_results": 50
-}'</pre>
-                    </div>
-
-                    <div class="endpoint">
-                        <h4><span class="endpoint-method">VIEW</span> View Results</h4>
-                        <pre>python src/job_seeker/main.py view_results</pre>
-                        <p>Displays information about previous job search results and generated files.</p>
-
-                        <div class="parameter">
-                            <strong>Shows:</strong>
+                            <strong>Training Benefits:</strong>
                             <ul>
-                                <li>Last search execution time</li>
-                                <li>Number of opportunities found</li>
-                                <li>Generated file locations and sizes</li>
-                                <li>Database statistics</li>
+                                <li>Improves agent decision-making accuracy</li>
+                                <li>Optimizes tool usage and workflow efficiency</li>
+                                <li>Enhances job matching algorithm performance</li>
+                                <li>Reduces execution time through learned optimizations</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="endpoint">
-                        <h4><span class="endpoint-method">UPDATE</span> Update Profile</h4>
-                        <pre>python src/job_seeker/main.py update_profile</pre>
-                        <p>Provides interactive guidance for updating your user profile configuration.</p>
+                        <h4><span class="endpoint-method">TEST</span> Test System</h4>
+                        <pre>crewai test</pre>
+                        <p>Runs comprehensive tests to verify all agents, tools, and system components are functioning correctly.</p>
 
                         <div class="parameter">
-                            <strong>Features:</strong>
+                            <strong>Test Coverage:</strong>
                             <ul>
-                                <li>Profile validation and syntax checking</li>
-                                <li>Field-by-field guidance</li>
-                                <li>Best practices and recommendations</li>
-                                <li>Profile completeness assessment</li>
+                                <li>Agent initialization and configuration</li>
+                                <li>Tool functionality and API connectivity</li>
+                                <li>Database operations and schema validation</li>
+                                <li>File system permissions and output generation</li>
+                                <li>End-to-end workflow execution</li>
                             </ul>
                         </div>
                     </div>
-                </div>
-
-                <div class="api-section">
-                    <h3>Advanced Commands</h3>
 
                     <div class="endpoint">
-                        <h4><span class="endpoint-method">TRAIN</span> Train Crew</h4>
-                        <pre>python src/job_seeker/main.py train &lt;iterations&gt; &lt;output_file&gt;</pre>
-                        <p>Trains the CrewAI agents to improve performance through multiple iterations.</p>
-
-                        <div class="parameter">
-                            <span class="parameter-name">iterations</span>
-                            <span class="parameter-type">integer</span>
-                            <span class="required">required</span>
-                            <p>Number of training iterations to perform (recommended: 3-10).</p>
-                        </div>
-
-                        <div class="parameter">
-                            <span class="parameter-name">output_file</span>
-                            <span class="parameter-type">string</span>
-                            <span class="required">required</span>
-                            <p>File path to save training results and performance metrics.</p>
-                        </div>
-
-                        <strong>Example:</strong>
-                        <pre>python src/job_seeker/main.py train 5 training_results.json</pre>
-                    </div>
-
-                    <div class="endpoint">
-                        <h4><span class="endpoint-method">REPLAY</span> Replay Task</h4>
-                        <pre>python src/job_seeker/main.py replay &lt;task_id&gt;</pre>
-                        <p>Replays a specific task execution for debugging or analysis purposes.</p>
+                        <h4><span class="endpoint-method">REPLAY</span> Replay Tasks</h4>
+                        <pre>crewai replay &lt;task_id&gt;</pre>
+                        <p>Replays specific workflow tasks for debugging, analysis, or performance optimization.</p>
 
                         <div class="parameter">
                             <span class="parameter-name">task_id</span>
                             <span class="parameter-type">string</span>
                             <span class="required">required</span>
-                            <p>Unique identifier of the task to replay (found in logs or training output).</p>
-                        </div>
+                            <p>Unique identifier of the task to replay (found in workflow logs or training output).</p>
 
-                        <strong>Example:</strong>
-                        <pre>python src/job_seeker/main.py replay task_job_search_20251201_143022</pre>
-                    </div>
-
-                    <div class="endpoint">
-                        <h4><span class="endpoint-method">TEST</span> Test System</h4>
-                        <pre>python src/job_seeker/main.py test</pre>
-                        <p>Runs system tests to verify all components are functioning correctly.</p>
-
-                        <div class="parameter">
-                            <strong>Tests Include:</strong>
+                            <strong>Use Cases:</strong>
                             <ul>
-                                <li>API connectivity and authentication</li>
-                                <li>Database operations and schema validation</li>
-                                <li>File system permissions and access</li>
-                                <li>Agent initialization and tool loading</li>
-                                <li>Configuration validation</li>
+                                <li>Debug specific agent failures or errors</li>
+                                <li>Analyze decision-making patterns</li>
+                                <li>Test workflow modifications</li>
+                                <li>Performance profiling and optimization</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="api-section">
-                    <h3>Installed Script Commands</h3>
-                    <p>After installing with <code>pip install -e .</code>, these shorter commands become available:</p>
+                    <h3>Advanced CrewAI Commands</h3>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">INSTALL</span> Install Dependencies</h4>
+                        <pre>crewai install</pre>
+                        <p>Installs all required dependencies and sets up the CrewAI project structure for optimal performance.</p>
+
+                        <div class="parameter">
+                            <strong>Installation Features:</strong>
+                            <ul>
+                                <li>Installs CrewAI framework and all dependencies</li>
+                                <li>Sets up virtual environment if needed</li>
+                                <li>Configures project structure and paths</li>
+                                <li>Validates Python version compatibility</li>
+                                <li>Prepares tools and agent configurations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">OUTPUT</span> Save Workflow Output</h4>
+                        <pre>crewai run > workflow_output.log</pre>
+                        <p>Captures the complete AI agent workflow, including reasoning, tool usage, and decision-making processes.</p>
+
+                        <div class="parameter">
+                            <strong>Captured Information:</strong>
+                            <ul>
+                                <li>Agent thought processes and reasoning chains</li>
+                                <li>Tool execution details and API responses</li>
+                                <li>Inter-agent communication and data handoffs</li>
+                                <li>Performance metrics and execution timing</li>
+                                <li>Error handling and recovery mechanisms</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="endpoint">
+                        <h4><span class="endpoint-method">ANALYZE</span> Workflow Analysis</h4>
+                        <pre>crewai replay &lt;task_id&gt; --analyze</pre>
+                        <p>Provides detailed analysis of specific workflow executions for optimization and debugging.</p>
+
+                        <div class="parameter">
+                            <strong>Analysis Features:</strong>
+                            <ul>
+                                <li>Performance bottleneck identification</li>
+                                <li>Agent decision-making pattern analysis</li>
+                                <li>Tool usage efficiency metrics</li>
+                                <li>Error pattern recognition</li>
+                                <li>Optimization recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>CrewAI Command Reference</h3>
+                    <p>After installing with <code>crewai install</code>, these CrewAI commands become available:</p>
 
                     <table>
                         <thead>
                             <tr>
-                                <th>Script Command</th>
-                                <th>Equivalent Full Command</th>
+                                <th>CrewAI Command</th>
+                                <th>Purpose</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><code>job_seeker</code></td>
-                                <td><code>python src/job_seeker/main.py run</code></td>
-                                <td>Execute basic job search</td>
+                                <td><code>crewai run</code></td>
+                                <td>Execute AI Workflow</td>
+                                <td>Run the complete job search with AI agent collaboration</td>
                             </tr>
                             <tr>
-                                <td><code>run_crew</code></td>
-                                <td><code>python src/job_seeker/main.py run</code></td>
-                                <td>Alternative command for job search</td>
+                                <td><code>crewai train</code></td>
+                                <td>Improve Performance</td>
+                                <td>Train agents for better decision-making and efficiency</td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai test</code></td>
+                                <td>Validate System</td>
+                                <td>Test all components, agents, and integrations</td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai replay</code></td>
+                                <td>Debug & Analyze</td>
+                                <td>Replay specific tasks for debugging and optimization</td>
+                            </tr>
+                            <tr>
+                                <td><code>crewai install</code></td>
+                                <td>Setup Project</td>
+                                <td>Install dependencies and configure CrewAI project</td>
                             </tr>
                         </tbody>
-                    </tbody>
                 </div>
             </div>
         </section>
@@ -672,7 +684,10 @@ ORDER BY search_date DESC;</pre>
                         <h4>Verbose Logging</h4>
                         <pre># Enable detailed logging
 export CREWAI_LOG_LEVEL=DEBUG
-python src/job_seeker/main.py run
+crewai run
+
+# Save complete workflow output
+crewai run > detailed_workflow.log
 
 # View logs in real-time
 tail -f ~/.crewai/logs/job_seeker.log</pre>
@@ -680,13 +695,17 @@ tail -f ~/.crewai/logs/job_seeker.log</pre>
 
                     <div class="endpoint">
                         <h4>Test Mode</h4>
-                        <pre># Run system tests
-python src/job_seeker/main.py test
+                        <pre># Run comprehensive system tests
+crewai test
 
-# Test specific components
-python src/job_seeker/main.py test --component=database
-python src/job_seeker/main.py test --component=api
-python src/job_seeker/main.py test --component=agents</pre>
+# Train agents for better performance
+crewai train
+
+# Replay specific workflow steps
+crewai replay &lt;task_id&gt;
+
+# Capture complete AI workflow
+crewai run > complete_workflow.log</pre>
                     </div>
                 </div>
             </div>

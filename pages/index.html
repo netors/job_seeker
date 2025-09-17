@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Job Search System | CrewAI Multi-Agent Framework</title>
+    <meta name="description" content="Comprehensive documentation for an intelligent job search system built with CrewAI framework, featuring 5 specialized AI agents for automated job discovery and evaluation.">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🤖 AI Job Search</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="architecture.html" class="nav-link">Architecture</a></li>
+                <li><a href="getting-started.html" class="nav-link">Getting Started</a></li>
+                <li><a href="api-reference.html" class="nav-link">API Reference</a></li>
+                <li><a href="https://github.com/netors/job_seeker" class="nav-link">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>AI-Powered Job Search System</h1>
+                    <p class="hero-subtitle">
+                        An intelligent job discovery platform built with CrewAI's multi-agent framework,
+                        designed to automate job searching, evaluation, and application strategy across multiple platforms.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">AI Agents</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Job Sites</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">0-100</span>
+                            <span class="stat-label">Match Scoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What It Does Section -->
+        <section class="section">
+            <div class="container">
+                <h2>What This System Does</h2>
+                <div class="content-grid">
+                    <div class="content-block">
+                        <h3>🔍 Automated Job Discovery</h3>
+                        <p>
+                            The system searches across major job platforms including Indeed, LinkedIn, Glassdoor, and others
+                            using the SerperDev API. It automatically extracts job postings, company information, and
+                            requirements without manual intervention.
+                        </p>
+                    </div>
+                    <div class="content-block">
+                        <h3>🎯 Intelligent Matching</h3>
+                        <p>
+                            Each discovered job opportunity is evaluated against your profile using a sophisticated
+                            scoring algorithm. The system analyzes skills alignment, experience requirements,
+                            location preferences, and salary expectations to provide 0-100 match scores.
+                        </p>
+                    </div>
+                    <div class="content-block">
+                        <h3>💾 Persistent Data Management</h3>
+                        <p>
+                            All job opportunities, evaluations, and search history are stored in a local SQLite database.
+                            This allows you to track applications, compare opportunities over time, and maintain
+                            a comprehensive job search database.
+                        </p>
+                    </div>
+                    <div class="content-block">
+                        <h3>📄 Comprehensive Reporting</h3>
+                        <p>
+                            The system generates detailed markdown reports with job recommendations, application strategies,
+                            and personalized guidance. Each report includes scoring breakdowns and reasoning for
+                            why specific opportunities were recommended.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CrewAI Framework Section -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Built with CrewAI Multi-Agent Framework</h2>
+                <div class="framework-overview">
+                    <div class="framework-description">
+                        <p>
+                            <strong>CrewAI</strong> is a cutting-edge framework for orchestrating role-playing,
+                            autonomous AI agents. In this implementation, five specialized agents work together
+                            in a coordinated workflow to handle different aspects of the job search process.
+                        </p>
+                        <p>
+                            Each agent has a specific role, set of tools, and expertise area. They execute tasks
+                            sequentially, with the output of one agent serving as input for the next, creating
+                            a sophisticated pipeline for job discovery and evaluation.
+                        </p>
+                    </div>
+                    <div class="framework-benefits">
+                        <h4>Why Multi-Agent Architecture?</h4>
+                        <ul>
+                            <li><strong>Specialization:</strong> Each agent focuses on one specific task, leading to better performance</li>
+                            <li><strong>Scalability:</strong> Agents can be modified or replaced independently</li>
+                            <li><strong>Reliability:</strong> If one agent encounters issues, others can continue processing</li>
+                            <li><strong>Maintainability:</strong> Clear separation of concerns makes the system easier to debug and extend</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agents Overview Section -->
+        <section class="section">
+            <div class="container">
+                <h2>The Five AI Agents</h2>
+                <div class="agents-overview">
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">🔍</span>
+                            <h3>Job Search Agent</h3>
+                        </div>
+                        <div class="agent-content">
+                            <p><strong>Role:</strong> Automated job discovery across multiple platforms</p>
+                            <p><strong>Tools:</strong> SerperDevTool, custom job search algorithms</p>
+                            <p><strong>Output:</strong> Structured job opportunity data in JSON format</p>
+                            <details>
+                                <summary>Technical Details</summary>
+                                <ul>
+                                    <li>Searches across Indeed, LinkedIn, Glassdoor, Dice, and other platforms</li>
+                                    <li>Handles API rate limiting and fallback mechanisms</li>
+                                    <li>Extracts job titles, descriptions, requirements, and company information</li>
+                                    <li>Normalizes data from different sources into consistent format</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">⚖️</span>
+                            <h3>Job Evaluator Agent</h3>
+                        </div>
+                        <div class="agent-content">
+                            <p><strong>Role:</strong> Intelligent job opportunity assessment and scoring</p>
+                            <p><strong>Tools:</strong> Custom evaluation algorithms, skill matching logic</p>
+                            <p><strong>Output:</strong> Scored jobs with detailed reasoning (0-100 scale)</p>
+                            <details>
+                                <summary>Technical Details</summary>
+                                <ul>
+                                    <li>Skills matching using semantic similarity analysis</li>
+                                    <li>Experience level compatibility assessment</li>
+                                    <li>Location and remote work preference evaluation</li>
+                                    <li>Salary range analysis and expectation matching</li>
+                                    <li>Company culture and type alignment scoring</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">🗄️</span>
+                            <h3>Database Manager Agent</h3>
+                        </div>
+                        <div class="agent-content">
+                            <p><strong>Role:</strong> Data persistence and search history management</p>
+                            <p><strong>Tools:</strong> SQLite database operations, data validation</p>
+                            <p><strong>Output:</strong> Stored job opportunities with metadata and timestamps</p>
+                            <details>
+                                <summary>Technical Details</summary>
+                                <ul>
+                                    <li>SQLite database schema for job opportunities and evaluations</li>
+                                    <li>Duplicate detection and data deduplication</li>
+                                    <li>Search history tracking and analytics</li>
+                                    <li>Data integrity validation and error handling</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">📄</span>
+                            <h3>Report Generator Agent</h3>
+                        </div>
+                        <div class="agent-content">
+                            <p><strong>Role:</strong> Comprehensive analysis and report creation</p>
+                            <p><strong>Tools:</strong> Markdown generation, data visualization, statistical analysis</p>
+                            <p><strong>Output:</strong> Detailed job search reports with recommendations</p>
+                            <details>
+                                <summary>Technical Details</summary>
+                                <ul>
+                                    <li>Top opportunities ranking based on match scores</li>
+                                    <li>Market analysis and salary trend insights</li>
+                                    <li>Skills gap analysis and improvement recommendations</li>
+                                    <li>Visual charts and graphs for data representation</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">🎯</span>
+                            <h3>Application Coordinator Agent</h3>
+                        </div>
+                        <div class="agent-content">
+                            <p><strong>Role:</strong> Strategic application guidance and planning</p>
+                            <p><strong>Tools:</strong> Application strategy algorithms, timeline planning</p>
+                            <p><strong>Output:</strong> Personalized application strategies and guidance</p>
+                            <details>
+                                <summary>Technical Details</summary>
+                                <ul>
+                                    <li>Cover letter suggestions tailored to specific roles</li>
+                                    <li>Interview preparation guidance based on job requirements</li>
+                                    <li>Application timeline and priority recommendations</li>
+                                    <li>Company research insights and talking points</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task Workflow Section -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Task Execution Workflow</h2>
+                <div class="workflow-overview">
+                    <p>
+                        The system executes five sequential tasks, with each agent contributing their specialized
+                        expertise to build a comprehensive job search solution:
+                    </p>
+
+                    <div class="task-flow">
+                        <div class="task-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>job_search_task</h4>
+                                <p>Job Search Agent discovers opportunities across multiple platforms using your profile criteria</p>
+                            </div>
+                        </div>
+
+                        <div class="task-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>job_evaluation_task</h4>
+                                <p>Job Evaluator Agent scores each opportunity against your profile and preferences</p>
+                            </div>
+                        </div>
+
+                        <div class="task-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>database_storage_task</h4>
+                                <p>Database Manager Agent stores all opportunities and evaluations for future reference</p>
+                            </div>
+                        </div>
+
+                        <div class="task-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>report_generation_task</h4>
+                                <p>Report Generator Agent creates comprehensive analysis and recommendations</p>
+                            </div>
+                        </div>
+
+                        <div class="task-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>application_coordination_task</h4>
+                                <p>Application Coordinator Agent provides strategic guidance and application planning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Output Files Section -->
+        <section class="section">
+            <div class="container">
+                <h2>System Output</h2>
+                <div class="output-overview">
+                    <p>
+                        After completing a job search cycle, the system generates three primary outputs
+                        that provide comprehensive insights and actionable information:
+                    </p>
+
+                    <div class="output-files">
+                        <div class="output-file">
+                            <h4>📋 job_search_report.md</h4>
+                            <p>
+                                A comprehensive markdown report containing top job opportunities ranked by match score,
+                                detailed analysis of each recommendation, skills gap assessment, and market insights.
+                                Includes scoring breakdowns and reasoning for each opportunity.
+                            </p>
+                        </div>
+
+                        <div class="output-file">
+                            <h4>📝 application_strategy.md</h4>
+                            <p>
+                                Personalized application guidance including cover letter templates, interview
+                                preparation materials, application timeline recommendations, and company-specific
+                                research insights tailored to your top opportunities.
+                            </p>
+                        </div>
+
+                        <div class="output-file">
+                            <h4>💾 job_opportunities.db</h4>
+                            <p>
+                                SQLite database containing all discovered opportunities, evaluation scores,
+                                search history, and metadata. This persistent storage allows for tracking
+                                applications over time and building a comprehensive job search database.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2>Quick Start</h2>
+                <div class="quick-start">
+                    <p>Ready to get started? The system requires minimal setup and can be running in minutes:</p>
+
+                    <div class="quick-steps">
+                        <div class="quick-step">
+                            <h4>1. Install and Configure</h4>
+                            <code>pip install -e . && cp env_template.txt .env</code>
+                        </div>
+                        <div class="quick-step">
+                            <h4>2. Set Up Your Profile</h4>
+                            <code>Edit knowledge/resume_template.json with your information</code>
+                        </div>
+                        <div class="quick-step">
+                            <h4>3. Run Your First Search</h4>
+                            <code>python src/job_seeker/main.py run</code>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="getting-started.html" class="btn btn-primary">Detailed Setup Guide</a>
+                        <a href="architecture.html" class="btn btn-secondary">System Architecture</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="architecture.html">System Architecture</a></li>
+                        <li><a href="getting-started.html">Getting Started</a></li>
+                        <li><a href="api-reference.html">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://www.crewai.com/">CrewAI Framework</a></li>
+                        <li><a href="https://serper.dev/">SerperDev API</a></li>
+                        <li><a href="https://docs.crewai.com/">CrewAI Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Source Code</h4>
+                    <ul>
+                        <li><a href="https://github.com/netors/job_seeker">GitHub Repository</a></li>
+                        <li><a href="https://github.com/netors/job_seeker/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/netors/job_seeker/blob/main/CLAUDE.md">Development Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI-Powered Job Search System. Built with CrewAI framework.</p>
+                <p>Follow the creator: <a href="http://x.com/eruysanchez" target="_blank">@eruysanchez</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

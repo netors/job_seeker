@@ -1,17 +1,89 @@
-research_task:
+job_search_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Search for job opportunities across multiple job sites and platforms based on
+    the user's profile information. Use the job search tool to find relevant
+    positions that match the user's skills, experience level, and preferences.
+    Search across major job boards including Indeed, LinkedIn, Glassdoor, and
+    specialized tech job sites. Focus on finding at least 20-30 relevant
+    opportunities to ensure a good selection for evaluation.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A comprehensive list of job opportunities in JSON format containing:
+    - Job title and company name
+    - Location and job type (full-time, remote, etc.)
+    - Job description and requirements
+    - Salary range (if available)
+    - Application URL
+    - Source platform
+    - Posted date
+  agent: job_search_agent
 
-reporting_task:
+job_evaluation_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Evaluate each job opportunity against the user's profile to calculate
+    match scores. Consider factors like:
+    - Skills alignment (technical skills, tools, technologies)
+    - Experience level match
+    - Location preferences
+    - Salary expectations
+    - Company type preferences
+    - Career growth opportunities
+    Score each job from 0-100 and provide detailed reasoning for the scores.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A JSON array of evaluated job opportunities with:
+    - Original job data
+    - Match score (0-100)
+    - Detailed evaluation reasoning
+    - Strengths and weaknesses of each opportunity
+    - Recommendations for application priority
+  agent: job_evaluator
+
+database_storage_task:
+  description: >
+    Store all evaluated job opportunities in the database for future reference
+    and tracking. Ensure proper data organization and indexing for easy
+    retrieval. Store both the original job data and evaluation results.
+  expected_output: >
+    Confirmation of successful database storage with:
+    - Number of jobs stored
+    - Database record IDs
+    - Storage timestamp
+    - Data integrity verification
+  agent: database_manager
+
+report_generation_task:
+  description: >
+    Generate a comprehensive job search report based on the evaluated
+    opportunities. Create a detailed markdown report that includes:
+    - Executive summary of findings
+    - Top 10 highest-scoring opportunities
+    - Detailed analysis of each top opportunity
+    - Application strategy and recommendations
+    - Next steps and action items
+    - Salary and market insights
+  expected_output: >
+    A comprehensive markdown report saved as 'job_search_report.md' containing:
+    - Executive summary
+    - Top job opportunities with detailed analysis
+    - Application strategy
+    - Market insights and recommendations
+    - Action plan and next steps
+  agent: report_generator
+
+application_coordination_task:
+  description: >
+    Create a detailed application strategy and tracking system for the
+    top job opportunities. Provide specific guidance on:
+    - Application timing and priority
+    - Customization requirements for each application
+    - Follow-up strategies
+    - Interview preparation recommendations
+    - Salary negotiation guidance
+  expected_output: >
+    A detailed application strategy document containing:
+    - Prioritized application list
+    - Customization guidelines for each application
+    - Timeline and milestones
+    - Interview preparation checklist
+    - Follow-up tracking system
+    - Salary negotiation strategy
+  agent: application_coordinator

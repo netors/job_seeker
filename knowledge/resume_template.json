@@ -1,0 +1,39 @@
+{
+  "name": "Your Full Name",
+  "email": "your.email@example.com",
+  "phone": "(555) 123-4567",
+  "current_role": "Software Engineer",
+  "years_experience": 5,
+  "location": "San Francisco, CA",
+  "preferred_locations": ["San Francisco, CA", "Remote", "New York, NY"],
+  "expected_salary": 150000,
+  "preferred_company_type": "tech_startup",
+  "skills": [
+    "Python",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "AWS",
+    "Docker",
+    "Kubernetes"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "University of Technology",
+      "graduation_year": 2018
+    }
+  ],
+  "experience": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "Tech Company Inc.",
+      "duration": "2020-Present",
+      "responsibilities": [
+        "Led development of microservices architecture",
+        "Mentored junior developers",
+        "Implemented CI/CD pipelines"
+      ]
+    }
+  ]
+}

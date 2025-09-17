@@ -1,0 +1,18 @@
+# Environment Variables for Job Search System
+# Copy this file to .env and fill in your API keys
+
+# Disable CrewAI Telemetry
+CREWAI_DISABLE_TELEMETRY=true
+CREWAI_DISABLE_TRACKING=true
+OTEL_SDK_DISABLED=true
+
+# Select model for CrewAI to use
+MODEL=gpt-4o
+
+# Serper API Key for web search functionality
+# Get your free API key at: https://serper.dev/
+SERPER_API_KEY=your_serper_api_key_here
+
+# OpenAI API Key for AI agents (optional - for full crew functionality)
+# Get your API key at: https://platform.openai.com/account/api-keys
+OPENAI_API_KEY=your_openai_api_key_here
